@@ -11,8 +11,8 @@
 
     body {
       font-family: 'Sora', sans-serif;
-      background: #08070e;
-      color: #fff;
+      background: #faf7f2;
+      color: #2d2a3e;
       min-height: 100dvh;
       display: flex;
       flex-direction: column;
@@ -38,7 +38,7 @@
       font-size: 1.1rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      background: linear-gradient(135deg, #c084fc, #fb923c);
+      background: linear-gradient(135deg, #a78bfa, #f472b6);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -54,13 +54,12 @@
 
     .card {
       position: relative;
-      background: linear-gradient(165deg, #1a103a 0%, #0f0a20 50%, #1a0e28 100%);
+      background: #fff;
       border-radius: 28px;
-      border: 1px solid rgba(192, 132, 252, 0.15);
+      border: none;
       box-shadow:
-        0 0 0 1px rgba(192, 132, 252, 0.05),
-        0 4px 24px rgba(124, 58, 237, 0.15),
-        0 20px 60px rgba(0, 0, 0, 0.6);
+        0 4px 24px rgba(167, 139, 250, 0.12),
+        0 12px 48px rgba(0, 0, 0, 0.06);
       overflow: hidden;
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
@@ -134,16 +133,23 @@
     }
 
     .choice:active {
-      background: rgba(255, 255, 255, 0.04);
       transform: scale(0.98);
     }
 
+    .choice--a {
+      background: linear-gradient(135deg, #ede9fe, #f3e8ff);
+    }
+
     .choice--a:hover {
-      background: rgba(192, 132, 252, 0.06);
+      background: linear-gradient(135deg, #ddd6fe, #e9d5ff);
+    }
+
+    .choice--b {
+      background: linear-gradient(135deg, #fce7f3, #fdf2f8);
     }
 
     .choice--b:hover {
-      background: rgba(251, 146, 60, 0.06);
+      background: linear-gradient(135deg, #fbcfe8, #fce7f3);
     }
 
     .choice-text {
@@ -156,11 +162,11 @@
     }
 
     .choice--a .choice-text {
-      color: #e9d5ff;
+      color: #6d28d9;
     }
 
     .choice--b .choice-text {
-      color: #fed7aa;
+      color: #be185d;
     }
 
     /* === PROGRESS BAR (hidden until voted) === */
@@ -175,11 +181,11 @@
     }
 
     .choice--a .choice-bar {
-      background: linear-gradient(90deg, rgba(139, 92, 246, 0.35), rgba(192, 132, 252, 0.2));
+      background: linear-gradient(90deg, rgba(139, 92, 246, 0.25), rgba(167, 139, 250, 0.12));
     }
 
     .choice--b .choice-bar {
-      background: linear-gradient(90deg, rgba(249, 115, 22, 0.35), rgba(251, 146, 60, 0.2));
+      background: linear-gradient(90deg, rgba(236, 72, 153, 0.25), rgba(244, 114, 182, 0.12));
     }
 
     .choice-percent {
@@ -195,8 +201,8 @@
       z-index: 2;
     }
 
-    .choice--a .choice-percent { color: #c084fc; }
-    .choice--b .choice-percent { color: #fb923c; }
+    .choice--a .choice-percent { color: #7c3aed; }
+    .choice--b .choice-percent { color: #db2777; }
 
     .card.voted .choice-percent { opacity: 1; }
     .card.voted .choice { cursor: default; pointer-events: none; }
@@ -215,8 +221,8 @@
     }
 
     .divider-text {
-      background: linear-gradient(135deg, #1e1040, #1a0e28);
-      border: 1px solid rgba(192, 132, 252, 0.2);
+      background: #fff;
+      border: 2px solid #e9d5ff;
       border-radius: 50%;
       width: 46px;
       height: 46px;
@@ -224,20 +230,20 @@
       align-items: center;
       justify-content: center;
       font-family: 'Space Grotesk', sans-serif;
-      font-weight: 500;
+      font-weight: 700;
       font-size: 0.85rem;
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.5);
+      color: #a78bfa;
       z-index: 3;
-      box-shadow: 0 0 20px rgba(124, 58, 237, 0.15);
+      box-shadow: 0 2px 12px rgba(167, 139, 250, 0.15);
     }
 
     .divider-line {
       position: absolute;
       width: 100%;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(192, 132, 252, 0.15), rgba(251, 146, 60, 0.15), transparent);
+      background: linear-gradient(90deg, transparent, #e9d5ff, #fce7f3, transparent);
     }
 
     /* === FOOTER === */
@@ -255,7 +261,7 @@
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.3);
+      color: rgba(45, 42, 62, 0.35);
       opacity: 0;
       transition: opacity 0.4s ease 0.5s;
     }
@@ -266,27 +272,26 @@
       display: none;
       margin: 14px auto 0;
       padding: 12px 36px;
-      background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(249, 115, 22, 0.15));
-      border: 1px solid rgba(192, 132, 252, 0.25);
+      background: linear-gradient(135deg, #a78bfa, #f472b6);
+      border: none;
       border-radius: 40px;
-      color: #e9d5ff;
+      color: #fff;
       font-family: 'Sora', sans-serif;
       font-weight: 600;
       font-size: 0.85rem;
       letter-spacing: 0.05em;
       cursor: pointer;
       transition: all 0.25s;
+      box-shadow: 0 4px 16px rgba(167, 139, 250, 0.3);
     }
 
     .next-btn:hover {
-      background: linear-gradient(135deg, rgba(139, 92, 246, 0.35), rgba(249, 115, 22, 0.25));
-      border-color: rgba(192, 132, 252, 0.4);
-      color: #fff;
-      box-shadow: 0 4px 20px rgba(124, 58, 237, 0.2);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(167, 139, 250, 0.4);
     }
 
     .next-btn:active {
-      transform: scale(0.96);
+      transform: scale(0.96) translateY(0);
     }
 
     .next-btn.visible { display: inline-block; animation: fadeIn 0.4s ease 0.6s both; }
@@ -295,7 +300,7 @@
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
       font-size: 1.3rem;
-      background: linear-gradient(135deg, #c084fc, #fb923c);
+      background: linear-gradient(135deg, #7c3aed, #db2777);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -310,7 +315,7 @@
     .character-block {
       padding: 20px 24px 24px;
       text-align: center;
-      border-top: 1px solid rgba(192, 132, 252, 0.1);
+      border-top: 1px solid #f3e8ff;
       opacity: 0;
       animation: slideUp 0.5s ease 0.6s both;
     }
@@ -325,13 +330,13 @@
       font-weight: 500;
       font-size: 0.95rem;
       line-height: 1.5;
-      color: rgba(255, 255, 255, 0.7);
+      color: #6b7280;
       font-style: italic;
       margin-bottom: 10px;
     }
 
-    .character-quote::before { content: '« '; color: #c084fc; }
-    .character-quote::after { content: ' »'; color: #c084fc; }
+    .character-quote::before { content: '« '; color: #a78bfa; }
+    .character-quote::after { content: ' »'; color: #a78bfa; }
 
     .character-info {
       font-family: 'Sora', sans-serif;
@@ -341,18 +346,14 @@
     }
 
     .character-name {
-      color: #fb923c;
+      color: #db2777;
     }
 
     .character-play {
-      color: rgba(255, 255, 255, 0.35);
+      color: #9ca3af;
     }
 
     /* === SELECTED HIGHLIGHT === */
-    .choice.selected .choice-text {
-      color: #fff;
-    }
-
     .choice.selected .choice-text::before {
       content: '▸ ';
       color: inherit;
@@ -366,27 +367,17 @@
       width: 200%;
       height: 200%;
       background:
-        radial-gradient(ellipse at 25% 15%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 75% 85%, rgba(249, 115, 22, 0.06) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, rgba(124, 58, 237, 0.03) 0%, transparent 70%);
+        radial-gradient(ellipse at 20% 10%, rgba(167, 139, 250, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 90%, rgba(244, 114, 182, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 60% 40%, rgba(251, 191, 36, 0.06) 0%, transparent 50%);
       pointer-events: none;
       z-index: 0;
       animation: ambientPulse 8s ease-in-out infinite alternate;
     }
 
     @keyframes ambientPulse {
-      from { opacity: 0.8; }
-      to { opacity: 1.2; }
-    }
-
-    /* === NOISE TEXTURE === */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
+      from { opacity: 0.7; }
+      to { opacity: 1; }
     }
   </style>
 </head>
