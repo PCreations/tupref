@@ -10,9 +10,9 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const server = fastify({ logger: true });
 
-// Serve static files
+// Serve static files (public/ is at project root, not in dist/)
 server.register(fastifyStatic, {
-  root: join(__dirname, 'public'),
+  root: join(__dirname, '..', 'public'),
   prefix: '/',
 });
 
