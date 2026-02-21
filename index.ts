@@ -53,11 +53,14 @@ server.post<{
     .set({ [choice === 'A' ? 'countA' : 'countB']: sql`${column} + 1` })
     .where(eq(questions.id, questionId));
 
-  // Return updated counts
+  // Return updated counts + character info
   const [row] = await db
     .select({
       countA: questions.countA,
       countB: questions.countB,
+      characterName: questions.characterName,
+      characterPlay: questions.characterPlay,
+      characterQuote: questions.characterQuote,
     })
     .from(questions)
     .where(eq(questions.id, questionId));
@@ -73,6 +76,11 @@ server.post<{
     percentA: total > 0 ? Math.round((row.countA / total) * 100) : 50,
     percentB: total > 0 ? Math.round((row.countB / total) * 100) : 50,
     total,
+    character: row.characterName ? {
+      name: row.characterName,
+      play: row.characterPlay,
+      quote: row.characterQuote,
+    } : null,
   };
 });
 
@@ -82,10 +90,25 @@ async function seedQuestions() {
     for (const q of questionsData) {
       await db
         .insert(questions)
-        .values({ id: q.id, optionA: q.optionA, optionB: q.optionB, countA: 0, countB: 0 })
+        .values({
+          id: q.id,
+          optionA: q.optionA,
+          optionB: q.optionB,
+          countA: 0,
+          countB: 0,
+          characterName: q.characterName ?? null,
+          characterPlay: q.characterPlay ?? null,
+          characterQuote: q.characterQuote ?? null,
+        })
         .onConflictDoUpdate({
           target: questions.id,
-          set: { optionA: sql`excluded.option_a`, optionB: sql`excluded.option_b` },
+          set: {
+            optionA: sql`excluded.option_a`,
+            optionB: sql`excluded.option_b`,
+            characterName: sql`excluded.character_name`,
+            characterPlay: sql`excluded.character_play`,
+            characterQuote: sql`excluded.character_quote`,
+          },
         });
     }
     console.log(`Seeded ${questionsData.length} questions`);

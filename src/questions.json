@@ -2,61 +2,97 @@
   {
     "id": "paix-verite",
     "optionA": "La paix",
-    "optionB": "La vérité"
+    "optionB": "La vérité",
+    "characterName": "Dr. Stockmann",
+    "characterPlay": "Un ennemi du peuple",
+    "characterQuote": "L'homme le plus fort du monde, c'est celui qui est le plus seul."
   },
   {
     "id": "obeir-conscience",
     "optionA": "Obéir à la loi",
-    "optionB": "Suivre sa conscience"
+    "optionB": "Suivre sa conscience",
+    "characterName": "Peter Stockmann",
+    "characterPlay": "Un ennemi du peuple",
+    "characterQuote": "L'individu doit se soumettre à la collectivité, ou plutôt aux autorités."
   },
   {
     "id": "mentir-proteger",
     "optionA": "Mentir pour protéger",
-    "optionB": "Blesser par honnêteté"
+    "optionB": "Blesser par honnêteté",
+    "characterName": "Jack Worthing",
+    "characterPlay": "L'Importance d'être Constant",
+    "characterQuote": "La vérité est rarement pure et jamais simple."
   },
   {
     "id": "majorite-raison",
     "optionA": "La majorité a toujours raison",
-    "optionB": "Un seul peut avoir raison contre tous"
+    "optionB": "Un seul peut avoir raison contre tous",
+    "characterName": "Dr. Stockmann",
+    "characterPlay": "Un ennemi du peuple",
+    "characterQuote": "La majorité n'a jamais raison. Jamais ! C'est là un de ces mensonges sociaux contre lesquels un homme libre doit se révolter."
   },
   {
     "id": "confort-justice",
     "optionA": "Le confort de l'ignorance",
-    "optionB": "Le poids de la justice"
+    "optionB": "Le poids de la justice",
+    "characterName": "Morten Kiil",
+    "characterPlay": "Un ennemi du peuple",
+    "characterQuote": "On ne lave pas son linge sale en public."
   },
   {
     "id": "apparences-authenticite",
     "optionA": "Sauver les apparences",
-    "optionB": "Vivre authentiquement"
+    "optionB": "Vivre authentiquement",
+    "characterName": "Algernon Moncrieff",
+    "characterPlay": "L'Importance d'être Constant",
+    "characterQuote": "Tout le monde peut être prudent, il suffit de n'avoir aucune imagination."
   },
   {
     "id": "loyal-juste",
     "optionA": "Être loyal envers les siens",
-    "optionB": "Être juste envers tous"
+    "optionB": "Être juste envers tous",
+    "characterName": "Hovstad",
+    "characterPlay": "Un ennemi du peuple",
+    "characterQuote": "Un journaliste qui trahit ceux qui sont sans défense prend une lourde responsabilité."
   },
   {
     "id": "silence-scandale",
     "optionA": "Le silence complice",
-    "optionB": "Le scandale nécessaire"
+    "optionB": "Le scandale nécessaire",
+    "characterName": "Aslaksen",
+    "characterPlay": "Un ennemi du peuple",
+    "characterQuote": "La modération est la plus grande vertu du citoyen — c'est du moins mon opinion."
   },
   {
     "id": "populaire-integre",
     "optionA": "Être populaire",
-    "optionB": "Être intègre"
+    "optionB": "Être intègre",
+    "characterName": "Lady Bracknell",
+    "characterPlay": "L'Importance d'être Constant",
+    "characterQuote": "Ne parlez jamais irrespectueusement de la bonne société. Seuls ceux qui n'arrivent pas à en faire partie le font."
   },
   {
     "id": "pardon-memoire",
     "optionA": "Pardonner et oublier",
-    "optionB": "Se souvenir et résister"
+    "optionB": "Se souvenir et résister",
+    "characterName": "Catherine Stockmann",
+    "characterPlay": "Un ennemi du peuple",
+    "characterQuote": "Thomas, ne vois-tu pas qu'ils te détruisent ?"
   },
   {
     "id": "verite-amitie",
     "optionA": "Dire la vérité à un ami",
-    "optionB": "Préserver l'amitié"
+    "optionB": "Préserver l'amitié",
+    "characterName": "Gwendolen Fairfax",
+    "characterPlay": "L'Importance d'être Constant",
+    "characterQuote": "En matière de choses graves, c'est le style qui compte, pas la sincérité."
   },
   {
     "id": "liberte-securite",
     "optionA": "La liberté totale",
-    "optionB": "La sécurité absolue"
+    "optionB": "La sécurité absolue",
+    "characterName": "Algernon Moncrieff",
+    "characterPlay": "L'Importance d'être Constant",
+    "characterQuote": "Il vaut bien mieux avoir une adresse permanente que d'être respectable."
   }
 ]
