@@ -4,6 +4,7 @@ import fastifyStatic from '@fastify/static';
 import { eq, sql } from 'drizzle-orm';
 import { db } from './src/db/index.js';
 import { questions } from './src/db/schema.js';
+import questionsData from './src/questions.json' with { type: 'json' };
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -75,11 +76,31 @@ server.post<{
   };
 });
 
-const port = parseInt(process.env.PORT ?? '8080', 10);
-server.listen({ port, host: '0.0.0.0' }, (err, address) => {
-  if (err) {
-    console.error(err);
-    process.exit(1);
+// Seed questions on startup (idempotent upsert)
+async function seedQuestions() {
+  try {
+    for (const q of questionsData) {
+      await db
+        .insert(questions)
+        .values({ id: q.id, optionA: q.optionA, optionB: q.optionB, countA: 0, countB: 0 })
+        .onConflictDoUpdate({
+          target: questions.id,
+          set: { optionA: sql`excluded.option_a`, optionB: sql`excluded.option_b` },
+        });
+    }
+    console.log(`Seeded ${questionsData.length} questions`);
+  } catch (e) {
+    console.error('Seed failed:', e);
   }
-  console.log(`Server listening at ${address}`);
+}
+
+const port = parseInt(process.env.PORT ?? '8080', 10);
+seedQuestions().then(() => {
+  server.listen({ port, host: '0.0.0.0' }, (err, address) => {
+    if (err) {
+      console.error(err);
+      process.exit(1);
+    }
+    console.log(`Server listening at ${address}`);
+  });
 });
