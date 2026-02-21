@@ -59,21 +59,61 @@
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
-    .card.entering {
-      animation: cardEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    .card.entering .choice--a {
+      animation: slideFromTop 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    .card.exiting {
-      animation: cardExit 0.35s ease-in forwards;
+    .card.entering .choice--b {
+      animation: slideFromBottom 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.12s forwards;
     }
 
-    @keyframes cardEnter {
-      from { opacity: 0; transform: translateY(40px) scale(0.95); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
+    .card.entering .divider {
+      animation: dividerPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.25s forwards;
     }
 
-    @keyframes cardExit {
-      to { opacity: 0; transform: translateX(-120px) rotate(-5deg); }
+    .card.entering .choice--a,
+    .card.entering .choice--b,
+    .card.entering .divider {
+      opacity: 0;
+    }
+
+    .card.exiting .choice--a {
+      animation: exitTop 0.35s ease-in forwards;
+    }
+
+    .card.exiting .choice--b {
+      animation: exitBottom 0.35s ease-in 0.05s forwards;
+    }
+
+    .card.exiting .divider {
+      animation: fadeOut 0.2s ease-in forwards;
+    }
+
+    @keyframes slideFromTop {
+      from { opacity: 0; transform: translateY(-60px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideFromBottom {
+      from { opacity: 0; transform: translateY(60px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes dividerPop {
+      from { opacity: 0; transform: scale(0.3); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes exitTop {
+      to { opacity: 0; transform: translateY(-80px); }
+    }
+
+    @keyframes exitBottom {
+      to { opacity: 0; transform: translateY(80px); }
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; }
     }
 
     /* === CHOICES === */
