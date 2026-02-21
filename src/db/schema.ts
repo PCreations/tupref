@@ -9,4 +9,10 @@ export const questions = pgTable('questions', {
   characterName: text('character_name'),
   characterPlay: text('character_play'),
   characterQuote: text('character_quote'),
+  characterNameA: text('character_name_a'),
+  characterPlayA: text('character_play_a'),
+  characterQuoteA: text('character_quote_a'),
+  characterNameB: text('character_name_b'),
+  characterPlayB: text('character_play_b'),
+  characterQuoteB: text('character_quote_b'),
 });

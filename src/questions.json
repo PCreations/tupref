@@ -3,96 +3,132 @@
     "id": "paix-verite",
     "optionA": "La paix",
     "optionB": "La vérité",
-    "characterName": "Dr. Stockmann",
-    "characterPlay": "Un ennemi du peuple",
-    "characterQuote": "L'homme le plus fort du monde, c'est celui qui est le plus seul."
+    "characterNameA": "Peter Stockmann",
+    "characterPlayA": "Un ennemi du peuple",
+    "characterQuoteA": "L'individu doit se soumettre à la collectivité, ou plutôt aux autorités qui veillent au bien de cette collectivité.",
+    "characterNameB": "Dr. Stockmann",
+    "characterPlayB": "Un ennemi du peuple",
+    "characterQuoteB": "L'homme le plus fort du monde, c'est celui qui est le plus seul."
   },
   {
     "id": "obeir-conscience",
     "optionA": "Obéir à la loi",
     "optionB": "Suivre sa conscience",
-    "characterName": "Peter Stockmann",
-    "characterPlay": "Un ennemi du peuple",
-    "characterQuote": "L'individu doit se soumettre à la collectivité, ou plutôt aux autorités."
+    "characterNameA": "Aslaksen",
+    "characterPlayA": "Un ennemi du peuple",
+    "characterQuoteA": "La modération est la plus grande vertu du citoyen — c'est du moins mon opinion.",
+    "characterNameB": "Dr. Stockmann",
+    "characterPlayB": "Un ennemi du peuple",
+    "characterQuoteB": "Un homme ne devrait jamais mettre ses plus beaux habits quand il va se battre pour la liberté et la vérité."
   },
   {
     "id": "mentir-proteger",
     "optionA": "Mentir pour protéger",
     "optionB": "Blesser par honnêteté",
-    "characterName": "Jack Worthing",
-    "characterPlay": "L'Importance d'être Constant",
-    "characterQuote": "La vérité est rarement pure et jamais simple."
+    "characterNameA": "Jack Worthing",
+    "characterPlayA": "L'Importance d'être Constant",
+    "characterQuoteA": "La vérité est rarement pure et jamais simple.",
+    "characterNameB": "Algernon Moncrieff",
+    "characterPlayB": "L'Importance d'être Constant",
+    "characterQuoteB": "La seule manière de se comporter avec une femme est de lui faire la cour si elle est jolie, et de la faire à une autre si elle est laide."
   },
   {
     "id": "majorite-raison",
     "optionA": "La majorité a toujours raison",
     "optionB": "Un seul peut avoir raison contre tous",
-    "characterName": "Dr. Stockmann",
-    "characterPlay": "Un ennemi du peuple",
-    "characterQuote": "La majorité n'a jamais raison. Jamais ! C'est là un de ces mensonges sociaux contre lesquels un homme libre doit se révolter."
+    "characterNameA": "Peter Stockmann",
+    "characterPlayA": "Un ennemi du peuple",
+    "characterQuoteA": "La majorité compacte a le droit — malheureusement — le droit détestable de faire des bêtises.",
+    "characterNameB": "Dr. Stockmann",
+    "characterPlayB": "Un ennemi du peuple",
+    "characterQuoteB": "La majorité n'a jamais raison. Jamais ! C'est là un de ces mensonges sociaux contre lesquels un homme libre doit se révolter."
   },
   {
     "id": "confort-justice",
     "optionA": "Le confort de l'ignorance",
     "optionB": "Le poids de la justice",
-    "characterName": "Morten Kiil",
-    "characterPlay": "Un ennemi du peuple",
-    "characterQuote": "On ne lave pas son linge sale en public."
+    "characterNameA": "Morten Kiil",
+    "characterPlayA": "Un ennemi du peuple",
+    "characterQuoteA": "On ne lave pas son linge sale en public.",
+    "characterNameB": "Dr. Stockmann",
+    "characterPlayB": "Un ennemi du peuple",
+    "characterQuoteB": "Il est désespérant de voir les imbéciles au pouvoir. Pourtant les amis de la vérité sont si souvent seuls."
   },
   {
     "id": "apparences-authenticite",
     "optionA": "Sauver les apparences",
     "optionB": "Vivre authentiquement",
-    "characterName": "Algernon Moncrieff",
-    "characterPlay": "L'Importance d'être Constant",
-    "characterQuote": "Tout le monde peut être prudent, il suffit de n'avoir aucune imagination."
+    "characterNameA": "Lady Bracknell",
+    "characterPlayA": "L'Importance d'être Constant",
+    "characterQuoteA": "Ne parlez jamais irrespectueusement de la bonne société. Seuls ceux qui n'arrivent pas à en faire partie le font.",
+    "characterNameB": "Algernon Moncrieff",
+    "characterPlayB": "L'Importance d'être Constant",
+    "characterQuoteB": "Tout le monde peut être prudent, il suffit de n'avoir aucune imagination."
   },
   {
     "id": "loyal-juste",
     "optionA": "Être loyal envers les siens",
     "optionB": "Être juste envers tous",
-    "characterName": "Hovstad",
-    "characterPlay": "Un ennemi du peuple",
-    "characterQuote": "Un journaliste qui trahit ceux qui sont sans défense prend une lourde responsabilité."
+    "characterNameA": "Catherine Stockmann",
+    "characterPlayA": "Un ennemi du peuple",
+    "characterQuoteA": "Thomas, ne vois-tu pas qu'ils te détruisent ?",
+    "characterNameB": "Hovstad",
+    "characterPlayB": "Un ennemi du peuple",
+    "characterQuoteB": "Un journaliste qui trahit ceux qui sont sans défense prend une lourde responsabilité."
   },
   {
     "id": "silence-scandale",
     "optionA": "Le silence complice",
     "optionB": "Le scandale nécessaire",
-    "characterName": "Aslaksen",
-    "characterPlay": "Un ennemi du peuple",
-    "characterQuote": "La modération est la plus grande vertu du citoyen — c'est du moins mon opinion."
+    "characterNameA": "Aslaksen",
+    "characterPlayA": "Un ennemi du peuple",
+    "characterQuoteA": "Tant que l'on agit avec modération, on ne peut pas faire grand tort.",
+    "characterNameB": "Dr. Stockmann",
+    "characterPlayB": "Un ennemi du peuple",
+    "characterQuoteB": "On devrait ne jamais avoir ses plus beaux pantalons quand on va combattre pour la liberté et la vérité."
   },
   {
     "id": "populaire-integre",
     "optionA": "Être populaire",
     "optionB": "Être intègre",
-    "characterName": "Lady Bracknell",
-    "characterPlay": "L'Importance d'être Constant",
-    "characterQuote": "Ne parlez jamais irrespectueusement de la bonne société. Seuls ceux qui n'arrivent pas à en faire partie le font."
+    "characterNameA": "Lady Bracknell",
+    "characterPlayA": "L'Importance d'être Constant",
+    "characterQuoteA": "Perdre un parent peut être considéré comme un malheur ; perdre les deux ressemble à de la négligence.",
+    "characterNameB": "Jack Worthing",
+    "characterPlayB": "L'Importance d'être Constant",
+    "characterQuoteB": "J'ai toujours eu l'impression que chacun de nous devait prendre soin de devenir ce qu'il est."
   },
   {
     "id": "pardon-memoire",
     "optionA": "Pardonner et oublier",
     "optionB": "Se souvenir et résister",
-    "characterName": "Catherine Stockmann",
-    "characterPlay": "Un ennemi du peuple",
-    "characterQuote": "Thomas, ne vois-tu pas qu'ils te détruisent ?"
+    "characterNameA": "Gwendolen Fairfax",
+    "characterPlayA": "L'Importance d'être Constant",
+    "characterQuoteA": "En matière de choses graves, c'est le style qui compte, pas la sincérité.",
+    "characterNameB": "Dr. Stockmann",
+    "characterPlayB": "Un ennemi du peuple",
+    "characterQuoteB": "Il viendra un temps où l'opinion de chacun sera jugée, non pas d'après ce qu'il a fait, mais d'après ce qu'il aurait dû faire."
   },
   {
     "id": "verite-amitie",
     "optionA": "Dire la vérité à un ami",
     "optionB": "Préserver l'amitié",
-    "characterName": "Gwendolen Fairfax",
-    "characterPlay": "L'Importance d'être Constant",
-    "characterQuote": "En matière de choses graves, c'est le style qui compte, pas la sincérité."
+    "characterNameA": "Dr. Stockmann",
+    "characterPlayA": "Un ennemi du peuple",
+    "characterQuoteA": "Le plus dangereux ennemi de la vérité, ce n'est pas le mensonge : c'est la conviction.",
+    "characterNameB": "Jack Worthing",
+    "characterPlayB": "L'Importance d'être Constant",
+    "characterQuoteB": "Les femmes ne sont jamais désarmées par les compliments. Les hommes, toujours."
   },
   {
     "id": "liberte-securite",
     "optionA": "La liberté totale",
     "optionB": "La sécurité absolue",
-    "characterName": "Algernon Moncrieff",
-    "characterPlay": "L'Importance d'être Constant",
-    "characterQuote": "Il vaut bien mieux avoir une adresse permanente que d'être respectable."
+    "characterNameA": "Algernon Moncrieff",
+    "characterPlayA": "L'Importance d'être Constant",
+    "characterQuoteA": "Il vaut bien mieux avoir une adresse permanente que d'être respectable.",
+    "characterNameB": "Peter Stockmann",
+    "characterPlayB": "Un ennemi du peuple",
+    "characterQuoteB": "La société ne peut vivre que par l'ordre. Et l'ordre est le fruit de la soumission de chacun aux règles communes."
   }
 ]

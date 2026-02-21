@@ -53,14 +53,17 @@ server.post<{
     .set({ [choice === 'A' ? 'countA' : 'countB']: sql`${column} + 1` })
     .where(eq(questions.id, questionId));
 
-  // Return updated counts + character info
+  // Return updated counts + character info based on choice
   const [row] = await db
     .select({
       countA: questions.countA,
       countB: questions.countB,
-      characterName: questions.characterName,
-      characterPlay: questions.characterPlay,
-      characterQuote: questions.characterQuote,
+      characterNameA: questions.characterNameA,
+      characterPlayA: questions.characterPlayA,
+      characterQuoteA: questions.characterQuoteA,
+      characterNameB: questions.characterNameB,
+      characterPlayB: questions.characterPlayB,
+      characterQuoteB: questions.characterQuoteB,
     })
     .from(questions)
     .where(eq(questions.id, questionId));
@@ -69,6 +72,10 @@ server.post<{
     return reply.status(404).send({ error: 'Question not found' });
   }
 
+  const charName = choice === 'A' ? row.characterNameA : row.characterNameB;
+  const charPlay = choice === 'A' ? row.characterPlayA : row.characterPlayB;
+  const charQuote = choice === 'A' ? row.characterQuoteA : row.characterQuoteB;
+
   const total = row.countA + row.countB;
   return {
     countA: row.countA,
@@ -76,10 +83,10 @@ server.post<{
     percentA: total > 0 ? Math.round((row.countA / total) * 100) : 50,
     percentB: total > 0 ? Math.round((row.countB / total) * 100) : 50,
     total,
-    character: row.characterName ? {
-      name: row.characterName,
-      play: row.characterPlay,
-      quote: row.characterQuote,
+    character: charName ? {
+      name: charName,
+      play: charPlay,
+      quote: charQuote,
     } : null,
   };
 });
@@ -96,18 +103,24 @@ async function seedQuestions() {
           optionB: q.optionB,
           countA: 0,
           countB: 0,
-          characterName: q.characterName ?? null,
-          characterPlay: q.characterPlay ?? null,
-          characterQuote: q.characterQuote ?? null,
+          characterNameA: q.characterNameA ?? null,
+          characterPlayA: q.characterPlayA ?? null,
+          characterQuoteA: q.characterQuoteA ?? null,
+          characterNameB: q.characterNameB ?? null,
+          characterPlayB: q.characterPlayB ?? null,
+          characterQuoteB: q.characterQuoteB ?? null,
         })
         .onConflictDoUpdate({
           target: questions.id,
           set: {
             optionA: sql`excluded.option_a`,
             optionB: sql`excluded.option_b`,
-            characterName: sql`excluded.character_name`,
-            characterPlay: sql`excluded.character_play`,
-            characterQuote: sql`excluded.character_quote`,
+            characterNameA: sql`excluded.character_name_a`,
+            characterPlayA: sql`excluded.character_play_a`,
+            characterQuoteA: sql`excluded.character_quote_a`,
+            characterNameB: sql`excluded.character_name_b`,
+            characterPlayB: sql`excluded.character_play_b`,
+            characterQuoteB: sql`excluded.character_quote_b`,
           },
         });
     }
