@@ -10,9 +10,15 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const server = fastify({ logger: true });
 
-// Serve static files (public/ is at project root, not in dist/)
+// Serve static files
+// In dev: __dirname = project root, in prod (built): __dirname = dist/
+import { existsSync } from 'fs';
+const publicDir = existsSync(join(__dirname, 'public'))
+  ? join(__dirname, 'public')
+  : join(__dirname, '..', 'public');
+
 server.register(fastifyStatic, {
-  root: join(__dirname, '..', 'public'),
+  root: publicDir,
   prefix: '/',
 });
 
