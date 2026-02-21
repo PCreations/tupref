@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Tu Préfères…</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0f;
+      color: #fff;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* === HEADER === */
+    .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      text-align: center;
+      padding: 20px 16px 12px;
+      z-index: 10;
+    }
+
+    .header h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 1.4rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* === CARD === */
+    .card-container {
+      perspective: 1000px;
+      width: 100%;
+      max-width: 380px;
+      padding: 0 20px;
+    }
+
+    .card {
+      position: relative;
+      background: linear-gradient(145deg, #1a1a2e, #16213e);
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .card.entering {
+      animation: cardEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .card.exiting {
+      animation: cardExit 0.35s ease-in forwards;
+    }
+
+    @keyframes cardEnter {
+      from { opacity: 0; transform: translateY(40px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes cardExit {
+      to { opacity: 0; transform: translateX(-120px) rotate(-5deg); }
+    }
+
+    /* === CHOICES === */
+    .choice {
+      position: relative;
+      padding: 36px 28px;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.2s;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    .choice:active {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .choice-text {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.35rem;
+      line-height: 1.3;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* === PROGRESS BAR (hidden until voted) === */
+    .choice-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      border-radius: 0;
+      transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      width: 0%;
+    }
+
+    .choice--a .choice-bar {
+      background: rgba(167, 139, 250, 0.2);
+    }
+
+    .choice--b .choice-bar {
+      background: rgba(250, 176, 139, 0.2);
+    }
+
+    .choice-percent {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 1.6rem;
+      opacity: 0;
+      transition: opacity 0.4s ease 0.3s;
+      z-index: 2;
+    }
+
+    .choice--a .choice-percent { color: #a78bfa; }
+    .choice--b .choice-percent { color: #fab08b; }
+
+    .card.voted .choice-percent { opacity: 1; }
+    .card.voted .choice { cursor: default; }
+    .card.voted .choice-text {
+      text-align: left;
+      font-size: 1.15rem;
+    }
+
+    /* === DIVIDER === */
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 0;
+      position: relative;
+    }
+
+    .divider-text {
+      background: #1e1e3a;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.6);
+      z-index: 3;
+    }
+
+    .divider-line {
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* === FOOTER === */
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      padding: 16px;
+    }
+
+    .total-votes {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.25);
+      opacity: 0;
+      transition: opacity 0.4s ease 0.5s;
+    }
+
+    .total-votes.visible { opacity: 1; }
+
+    .next-btn {
+      display: none;
+      margin: 12px auto 0;
+      padding: 10px 32px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 40px;
+      color: rgba(255, 255, 255, 0.7);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .next-btn:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
+    .next-btn.visible { display: inline-block; animation: fadeIn 0.4s ease 0.6s both; }
+
+    .end-message {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.6);
+      text-align: center;
+      padding: 40px 20px;
+      animation: fadeIn 0.5s ease both;
+    }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* === SELECTED HIGHLIGHT === */
+    .choice.selected .choice-text::before {
+      content: '→ ';
+      color: inherit;
+    }
+
+    /* === AMBIENT === */
+    .ambient {
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(ellipse at 30% 20%, rgba(167, 139, 250, 0.04) 0%, transparent 50%),
+                  radial-gradient(ellipse at 70% 80%, rgba(250, 176, 139, 0.03) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient"></div>
+
+  <div class="header">
+    <h1>Tu Préfères…</h1>
+  </div>
+
+  <div class="card-container" id="app"></div>
+
+  <div class="footer">
+    <div class="total-votes" id="total-votes"></div>
+    <button class="next-btn" id="next-btn" onclick="nextQuestion()">Question suivante</button>
+  </div>
+
+  <script>
+    let allQuestions = [];
+    let currentIndex = 0;
+    let voted = false;
+
+    async function init() {
+      try {
+        const res = await fetch('/api/questions');
+        allQuestions = await res.json();
+        // Shuffle
+        for (let i = allQuestions.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [allQuestions[i], allQuestions[j]] = [allQuestions[j], allQuestions[i]];
+        }
+        // Filter out already answered
+        const answered = JSON.parse(localStorage.getItem('tupref_answered') || '[]');
+        allQuestions = allQuestions.filter(q => !answered.includes(q.id));
+
+        if (allQuestions.length > 0) {
+          showQuestion(0);
+        } else {
+          showEnd();
+        }
+      } catch (e) {
+        document.getElementById('app').innerHTML =
+          '<div class="end-message">Impossible de charger les questions.</div>';
+      }
+    }
+
+    function showQuestion(index) {
+      if (index >= allQuestions.length) { showEnd(); return; }
+      currentIndex = index;
+      voted = false;
+      const q = allQuestions[index];
+      const app = document.getElementById('app');
+      const totalEl = document.getElementById('total-votes');
+      const nextEl = document.getElementById('next-btn');
+
+      totalEl.className = 'total-votes';
+      totalEl.textContent = '';
+      nextEl.className = 'next-btn';
+
+      app.innerHTML = `
+        <div class="card entering" id="card">
+          <div class="choice choice--a" onclick="vote('A')">
+            <div class="choice-bar" id="bar-a"></div>
+            <div class="choice-text">${q.optionA}</div>
+            <div class="choice-percent" id="pct-a"></div>
+          </div>
+          <div class="divider">
+            <div class="divider-line"></div>
+            <div class="divider-text">ou</div>
+          </div>
+          <div class="choice choice--b" onclick="vote('B')">
+            <div class="choice-bar" id="bar-b"></div>
+            <div class="choice-text">${q.optionB}</div>
+            <div class="choice-percent" id="pct-b"></div>
+          </div>
+        </div>
+      `;
+    }
+
+    async function vote(choice) {
+      if (voted) return;
+      voted = true;
+
+      const q = allQuestions[currentIndex];
+      const card = document.getElementById('card');
+      card.classList.add('voted');
+
+      // Highlight selected
+      const sel = choice === 'A' ? '.choice--a' : '.choice--b';
+      card.querySelector(sel).classList.add('selected');
+
+      // Save to localStorage
+      const answered = JSON.parse(localStorage.getItem('tupref_answered') || '[]');
+      answered.push(q.id);
+      localStorage.setItem('tupref_answered', JSON.stringify(answered));
+
+      try {
+        const res = await fetch('/api/answer', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ questionId: q.id, choice }),
+        });
+        const data = await res.json();
+
+        // Animate bars
+        requestAnimationFrame(() => {
+          document.getElementById('bar-a').style.width = data.percentA + '%';
+          document.getElementById('bar-b').style.width = data.percentB + '%';
+          document.getElementById('pct-a').textContent = data.percentA + '%';
+          document.getElementById('pct-b').textContent = data.percentB + '%';
+
+          const totalEl = document.getElementById('total-votes');
+          totalEl.textContent = data.total + ' vote' + (data.total > 1 ? 's' : '');
+          totalEl.className = 'total-votes visible';
+
+          const nextEl = document.getElementById('next-btn');
+          if (currentIndex < allQuestions.length - 1) {
+            nextEl.className = 'next-btn visible';
+          } else {
+            // Last question — show end after delay
+            setTimeout(showEnd, 2000);
+          }
+        });
+      } catch (e) {
+        // Offline fallback
+        document.getElementById('pct-a').textContent = '?';
+        document.getElementById('pct-b').textContent = '?';
+      }
+    }
+
+    function nextQuestion() {
+      const card = document.getElementById('card');
+      card.classList.add('exiting');
+      setTimeout(() => showQuestion(currentIndex + 1), 350);
+    }
+
+    function showEnd() {
+      document.getElementById('app').innerHTML =
+        '<div class="end-message">Merci. Rendez-vous au théâtre.</div>';
+      document.getElementById('next-btn').className = 'next-btn';
+      document.getElementById('total-votes').className = 'total-votes';
+    }
+
+    init();
+  </script>
+</body>
+</html>

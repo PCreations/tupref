@@ -1,0 +1,62 @@
+[
+  {
+    "id": "paix-verite",
+    "optionA": "La paix",
+    "optionB": "La vérité"
+  },
+  {
+    "id": "obeir-conscience",
+    "optionA": "Obéir à la loi",
+    "optionB": "Suivre sa conscience"
+  },
+  {
+    "id": "mentir-proteger",
+    "optionA": "Mentir pour protéger",
+    "optionB": "Blesser par honnêteté"
+  },
+  {
+    "id": "majorite-raison",
+    "optionA": "La majorité a toujours raison",
+    "optionB": "Un seul peut avoir raison contre tous"
+  },
+  {
+    "id": "confort-justice",
+    "optionA": "Le confort de l'ignorance",
+    "optionB": "Le poids de la justice"
+  },
+  {
+    "id": "apparences-authenticite",
+    "optionA": "Sauver les apparences",
+    "optionB": "Vivre authentiquement"
+  },
+  {
+    "id": "loyal-juste",
+    "optionA": "Être loyal envers les siens",
+    "optionB": "Être juste envers tous"
+  },
+  {
+    "id": "silence-scandale",
+    "optionA": "Le silence complice",
+    "optionB": "Le scandale nécessaire"
+  },
+  {
+    "id": "populaire-integre",
+    "optionA": "Être populaire",
+    "optionB": "Être intègre"
+  },
+  {
+    "id": "pardon-memoire",
+    "optionA": "Pardonner et oublier",
+    "optionB": "Se souvenir et résister"
+  },
+  {
+    "id": "verite-amitie",
+    "optionA": "Dire la vérité à un ami",
+    "optionB": "Préserver l'amitié"
+  },
+  {
+    "id": "liberte-securite",
+    "optionA": "La liberté totale",
+    "optionB": "La sécurité absolue"
+  }
+]
