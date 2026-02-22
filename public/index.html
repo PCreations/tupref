@@ -418,9 +418,6 @@
           const j = Math.floor(Math.random() * (i + 1));
           [allQuestions[i], allQuestions[j]] = [allQuestions[j], allQuestions[i]];
         }
-        // Filter out already answered
-        const answered = JSON.parse(localStorage.getItem('tupref_answered') || '[]');
-        allQuestions = allQuestions.filter(q => !answered.includes(q.id));
 
         if (allQuestions.length > 0) {
           showQuestion(0);
@@ -477,11 +474,6 @@
       // Highlight selected
       const sel = choice === 'A' ? '.choice--a' : '.choice--b';
       card.querySelector(sel).classList.add('selected');
-
-      // Save to localStorage
-      const answered = JSON.parse(localStorage.getItem('tupref_answered') || '[]');
-      answered.push(q.id);
-      localStorage.setItem('tupref_answered', JSON.stringify(answered));
 
       try {
         const res = await fetch('/api/answer', {
