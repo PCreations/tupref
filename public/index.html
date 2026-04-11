@@ -11,7 +11,7 @@
 
     body {
       font-family: 'Sora', sans-serif;
-      background: #08070e;
+      background: #0b1929;
       color: #fff;
       min-height: 100dvh;
       display: flex;
@@ -38,7 +38,7 @@
       font-size: 1.1rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      background: linear-gradient(135deg, #c084fc, #fb923c);
+      background: linear-gradient(135deg, #8cc084, #e0a0b8);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -54,12 +54,12 @@
 
     .card {
       position: relative;
-      background: linear-gradient(165deg, #1a103a 0%, #0f0a20 50%, #1a0e28 100%);
+      background: linear-gradient(165deg, #0e2640 0%, #091c30 50%, #0e2038 100%);
       border-radius: 28px;
-      border: 1px solid rgba(192, 132, 252, 0.15);
+      border: 1px solid rgba(140, 192, 132, 0.15);
       box-shadow:
-        0 0 0 1px rgba(192, 132, 252, 0.05),
-        0 4px 24px rgba(124, 58, 237, 0.15),
+        0 0 0 1px rgba(140, 192, 132, 0.05),
+        0 4px 24px rgba(42, 110, 160, 0.15),
         0 20px 60px rgba(0, 0, 0, 0.6);
       overflow: hidden;
       transition: transform 0.3s ease, opacity 0.3s ease;
@@ -139,11 +139,11 @@
     }
 
     .choice--a:hover {
-      background: rgba(192, 132, 252, 0.06);
+      background: rgba(140, 192, 132, 0.06);
     }
 
     .choice--b:hover {
-      background: rgba(251, 146, 60, 0.06);
+      background: rgba(224, 160, 184, 0.06);
     }
 
     .choice-text {
@@ -156,11 +156,11 @@
     }
 
     .choice--a .choice-text {
-      color: #e9d5ff;
+      color: #d0f0c8;
     }
 
     .choice--b .choice-text {
-      color: #fed7aa;
+      color: #fdd0e0;
     }
 
     /* === PROGRESS BAR (hidden until voted) === */
@@ -175,11 +175,11 @@
     }
 
     .choice--a .choice-bar {
-      background: linear-gradient(90deg, rgba(139, 92, 246, 0.6), rgba(192, 132, 252, 0.35));
+      background: linear-gradient(90deg, rgba(100, 170, 96, 0.6), rgba(140, 192, 132, 0.35));
     }
 
     .choice--b .choice-bar {
-      background: linear-gradient(90deg, rgba(244, 114, 182, 0.6), rgba(251, 113, 133, 0.35));
+      background: linear-gradient(90deg, rgba(210, 130, 160, 0.6), rgba(224, 160, 184, 0.35));
     }
 
     .choice-percent {
@@ -195,8 +195,8 @@
       z-index: 2;
     }
 
-    .choice--a .choice-percent { color: #c084fc; }
-    .choice--b .choice-percent { color: #fb923c; }
+    .choice--a .choice-percent { color: #8cc084; }
+    .choice--b .choice-percent { color: #e0a0b8; }
 
     .card.voted .choice-percent { opacity: 1; }
     .card.voted .choice { cursor: default; pointer-events: none; }
@@ -215,8 +215,8 @@
     }
 
     .divider-text {
-      background: linear-gradient(135deg, #1e1040, #1a0e28);
-      border: 1px solid rgba(192, 132, 252, 0.2);
+      background: linear-gradient(135deg, #0c2238, #0e2038);
+      border: 1px solid rgba(140, 192, 132, 0.2);
       border-radius: 50%;
       width: 46px;
       height: 46px;
@@ -230,14 +230,14 @@
       text-transform: uppercase;
       color: rgba(255, 255, 255, 0.5);
       z-index: 3;
-      box-shadow: 0 0 20px rgba(124, 58, 237, 0.15);
+      box-shadow: 0 0 20px rgba(42, 110, 160, 0.15);
     }
 
     .divider-line {
       position: absolute;
       width: 100%;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(192, 132, 252, 0.15), rgba(251, 146, 60, 0.15), transparent);
+      background: linear-gradient(90deg, transparent, rgba(140, 192, 132, 0.15), rgba(224, 160, 184, 0.15), transparent);
     }
 
     /* === FOOTER === */
@@ -265,24 +265,24 @@
     .next-btn {
       display: none;
       margin: 14px auto 0;
-      padding: 12px 36px;
-      background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(249, 115, 22, 0.15));
-      border: 1px solid rgba(192, 132, 252, 0.25);
+      padding: 16px 48px;
+      background: linear-gradient(135deg, rgba(100, 170, 96, 0.25), rgba(224, 160, 184, 0.2));
+      border: 1px solid rgba(140, 192, 132, 0.3);
       border-radius: 40px;
-      color: #e9d5ff;
+      color: #d0f0c8;
       font-family: 'Sora', sans-serif;
       font-weight: 600;
-      font-size: 0.85rem;
+      font-size: 1.1rem;
       letter-spacing: 0.05em;
       cursor: pointer;
       transition: all 0.25s;
     }
 
     .next-btn:hover {
-      background: linear-gradient(135deg, rgba(139, 92, 246, 0.35), rgba(249, 115, 22, 0.25));
-      border-color: rgba(192, 132, 252, 0.4);
+      background: linear-gradient(135deg, rgba(100, 170, 96, 0.4), rgba(224, 160, 184, 0.3));
+      border-color: rgba(140, 192, 132, 0.5);
       color: #fff;
-      box-shadow: 0 4px 20px rgba(124, 58, 237, 0.2);
+      box-shadow: 0 4px 20px rgba(42, 110, 160, 0.25);
     }
 
     .next-btn:active {
@@ -295,7 +295,7 @@
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
       font-size: 1.3rem;
-      background: linear-gradient(135deg, #c084fc, #fb923c);
+      background: linear-gradient(135deg, #8cc084, #e0a0b8);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -310,7 +310,7 @@
     .character-block {
       padding: 20px 24px 24px;
       text-align: center;
-      border-top: 1px solid rgba(192, 132, 252, 0.1);
+      border-top: 1px solid rgba(140, 192, 132, 0.1);
       opacity: 0;
       animation: slideUp 0.5s ease 0.6s both;
     }
@@ -330,8 +330,8 @@
       margin-bottom: 10px;
     }
 
-    .character-quote::before { content: '« '; color: #c084fc; }
-    .character-quote::after { content: ' »'; color: #c084fc; }
+    .character-quote::before { content: '« '; color: #8cc084; }
+    .character-quote::after { content: ' »'; color: #8cc084; }
 
     .character-info {
       font-family: 'Sora', sans-serif;
@@ -341,7 +341,7 @@
     }
 
     .character-name {
-      color: #fb923c;
+      color: #e0a0b8;
     }
 
     .character-play {
@@ -358,6 +358,17 @@
       color: inherit;
     }
 
+    /* === SWIPE HINT === */
+    .swipe-hint {
+      margin-top: 10px;
+      font-family: 'Sora', sans-serif;
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.25);
+      letter-spacing: 0.05em;
+      opacity: 0;
+      animation: fadeIn 0.4s ease 1s both;
+    }
+
     /* === AMBIENT === */
     .ambient {
       position: fixed;
@@ -366,9 +377,9 @@
       width: 200%;
       height: 200%;
       background:
-        radial-gradient(ellipse at 25% 15%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 75% 85%, rgba(249, 115, 22, 0.06) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, rgba(124, 58, 237, 0.03) 0%, transparent 70%);
+        radial-gradient(ellipse at 25% 15%, rgba(100, 170, 96, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 75% 85%, rgba(224, 160, 184, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(42, 110, 160, 0.05) 0%, transparent 70%);
       pointer-events: none;
       z-index: 0;
       animation: ambientPulse 8s ease-in-out infinite alternate;
@@ -402,12 +413,36 @@
   <div class="footer">
     <div class="total-votes" id="total-votes"></div>
     <button class="next-btn" id="next-btn" onclick="nextQuestion()">Question suivante</button>
+    <div class="swipe-hint" id="swipe-hint"></div>
   </div>
 
   <script>
     let allQuestions = [];
     let currentIndex = 0;
     let voted = false;
+
+    // Swipe detection
+    let touchStartX = 0;
+    let touchStartY = 0;
+    const SWIPE_THRESHOLD = 60;
+
+    document.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    document.addEventListener('touchend', function(e) {
+      if (!voted) return;
+      if (currentIndex >= allQuestions.length - 1) return;
+
+      const dx = e.changedTouches[0].screenX - touchStartX;
+      const dy = e.changedTouches[0].screenY - touchStartY;
+
+      // Swipe left — horizontal movement must dominate vertical
+      if (Math.abs(dx) > SWIPE_THRESHOLD && Math.abs(dx) > Math.abs(dy) * 1.5 && dx < 0) {
+        nextQuestion();
+      }
+    }, { passive: true });
 
     async function init() {
       try {
@@ -438,10 +473,13 @@
       const app = document.getElementById('app');
       const totalEl = document.getElementById('total-votes');
       const nextEl = document.getElementById('next-btn');
+      const hintEl = document.getElementById('swipe-hint');
 
       totalEl.className = 'total-votes';
       totalEl.textContent = '';
       nextEl.className = 'next-btn';
+      hintEl.textContent = '';
+      hintEl.style.opacity = '0';
 
       app.innerHTML = `
         <div class="card entering" id="card">
@@ -511,6 +549,10 @@
           const nextEl = document.getElementById('next-btn');
           if (currentIndex < allQuestions.length - 1) {
             nextEl.className = 'next-btn visible';
+            // Show swipe hint on mobile
+            const hintEl = document.getElementById('swipe-hint');
+            hintEl.textContent = '← swipe pour continuer';
+            hintEl.style.opacity = '';
           } else {
             // Last question — show end after delay
             setTimeout(showEnd, 2000);
@@ -534,6 +576,7 @@
         '<div class="end-message">Merci. Rendez-vous au théâtre.</div>';
       document.getElementById('next-btn').className = 'next-btn';
       document.getElementById('total-votes').className = 'total-votes';
+      document.getElementById('swipe-hint').textContent = '';
     }
 
     init();
